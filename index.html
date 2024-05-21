@@ -1,46 +1,102 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Закрывающий тег</title>
-    <link rel="stylesheet" href="./fonts/fonts.css" />
-    <link rel="stylesheet" href="./styles/variables.css" />
-    <link rel="stylesheet" href="./styles/globals.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="stylesheet" href="./styles/animations.css" />
-    <link rel="stylesheet" href="./styles/themes.css" />
-    <script src="./scripts/set-theme.js"></script>
-  </head>
-  <body class="page">
-    <header class="header">
-      <nav class="theme-menu header__theme-menu">
-        <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
-        <ul class="theme-menu__list">
-          <li class="theme-menu__item">
-            <button type="button" data-theme="dark" class="theme-menu__button">
-              Темно
-            </button>
-          </li>
-          <li class="theme-menu__item">
-            <button
-              type="button"
-              data-theme="auto"
-              disabled
-              class="theme-menu__button"
-            >
-              Авто
-            </button>
-          </li>
-          <li class="theme-menu__item">
-            <button type="button" data-theme="light" class="theme-menu__button">
-              Светло
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main></main>
-    <script src="./scripts/like.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light">
+  <title>Закрывающий тег</title>
+  <link rel="stylesheet" href="./fonts/fonts.css" />
+  <link rel="stylesheet" href="./styles/variables.css" />
+  <link rel="stylesheet" href="./styles/globals.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="./styles/animations.css" />
+  <link rel="stylesheet" href="./styles/themes.css" />
+  <script src="./scripts/set-theme.js"></script>
+</head>
+
+<body class="page">
+  <header class="header main__theme">
+    <nav class="theme-menu header__theme-menu">
+      <h1 class="layout-header">&lt;/HTML&gt;</h1>
+      <h2 class="layout-header__description">закрывающий тег</h2>
+      <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
+      <ul class="theme-menu__list">
+        <li class="theme-menu__item">
+          <button type="button" data-theme="dark" class="theme-menu__button">
+            Темно
+          </button>
+        </li>
+        <li class="theme-menu__item">
+          <button type="button" data-theme="auto" disabled class="theme-menu__button">
+            Авто
+          </button>
+        </li>
+        <li class="theme-menu__item">
+          <button type="button" data-theme="light" class="theme-menu__button">
+            Светло
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main">
+    <section class="cards__list">
+      <article class="card main__theme">
+        <div class="card__header">Фритрек и нулевой спринт: Подготовка к работе</div>
+        
+        <div class="card__image-wrapper">
+          <img src="./images/card.png" class="card__image" alt="Трейлер">
+          <span class="card__image-label">&lt;/HTML&gt;</span>
+        </div>
+        
+        <div class="card__description">
+          <p>
+            Это было самое начало пути. На этом этапе важно 
+            было проникнуться основами и настроиться на учёбу. И,
+            возможно, подумать, как новые знания могут повлиять на ваше будущее.
+          </p>
+          
+          <p>Место для ваших воспоминаний о начале обучения.</p>
+        </div>
+        <div class="card__like">
+          <svg viewbox="0 0 39 36" width="39px" class="like-icon">
+            <use href="./svg/fullHeart.svg#fullHeart" class="fullHeart">
+          </svg>
+
+          <button type="button" class="like__button">Like</button></div>
+      </article>
+    </section>
+
+    <section class="save">
+      <dialog id="modal">
+        <div class="modal-info">
+          <svg viewbox="0 0 39 39" width="39px">
+            <use href="./svg/floppy.svg#flop" class="floppy">
+          </svg>
+          
+          <span>Вставьте дискету, чтобы продолжить</span>
+        </div>
+
+        <button class="modal-button" type="button" onclick="window['modal'].close();">ОК</button>
+      </dialog>
+
+      <button 
+        type="button"
+        onclick="window['modal'].showModal();"
+        aria-controls="modal"
+        class="save__button"
+      >
+        <svg viewbox="0 0 39 39" width="21px" class="floppy">
+          <use href="./svg/floppy.svg#flop" class="floppy">
+        </svg>
+
+        <span>Сохранить на память</span>
+      </button>
+    </section>
+  </main>
+  
+  <script src="./scripts/like.js"></script>
+</body>
+
 </html>
