@@ -204,8 +204,71 @@ body {
   margin-right: 8px;
 }
 
-
-.fullHeart:hover #fullHeart{
-  color: green;
-  fill: green;
+.main-body {
+  transition: 0.3s;
 }
+
+.core {
+  transition: 0.3s;
+}
+
+
+.like-icon:hover .core {
+  fill: var(--additional-color);
+  transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--additional-color);
+  transition: fill 0.3s 0.1s linear;
+}
+
+.like-icon:active .main-body {
+  fill: red;
+  transition: fill 0.3s 0.1s linear;
+}
+
+.like-icon:active .core {
+  fill: red;
+  transition: fill 0.3s 0.1s linear;
+}
+
+.like-icon.is-liked {
+
+}
+
+
+
+
+
+
+.like-icon.is-liked {
+  animation: scale-animation 2s infinite;
+  animation-iteration-count: 1;
+  animation-delay: 1s;
+}
+
+@keyframes scale-animation {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.5);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+/* .animated-svg {
+  width: 100px;
+  height: 100px;
+  animation: scale-animation 2s infinite;
+} */
+
+
+
+
+/* .like-icon:hover .fullHeart {
+  display: none;
+} */
