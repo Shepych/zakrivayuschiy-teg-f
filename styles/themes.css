@@ -12,6 +12,7 @@
     --background-gradient-additional: #000000;
     --background-gradient-additional-linear: #e7e7e7;
     --background-gradient-additional-linear-two: #1a1a1a;
+    --heart-color: red;
 }
 
 .theme-dark {
@@ -21,6 +22,7 @@
     --background-gradient-additional: #00CC14;
     --background-gradient-additional-linear: #007f0c;
     --background-gradient-additional-linear-two: #004306;
+    --heart-color: #00CC14;
 }
 
 @media (prefers-color-scheme: light) {
@@ -31,6 +33,7 @@
         --background-gradient-additional: #000000;
         --background-gradient-additional-linear: #e7e7e7;
         --background-gradient-additional-linear-two: #1a1a1a;
+        --heart-color: red;
     }
 }
 
@@ -42,5 +45,6 @@
         --background-gradient-additional: #00CC14;
         --background-gradient-additional-linear: #007f0c;
         --background-gradient-additional-linear-two: #004306;
+        --heart-color: #00CC14;
     }
 }

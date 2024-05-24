@@ -64,7 +64,7 @@
             <use href="./svg/fullHeart.svg#fullHeart" class="fullHeart">
           </svg> -->
 
-          <div>
+          <div style="display: flex;">
             <div class="card__icon-button">
               <svg id="fullHeart" width="39" height="36" viewBox="0 0 39 36" xmlns="http://www.w3.org/2000/svg" class="like-icon">
                 <g>
@@ -77,7 +77,7 @@
               </svg>
             </div>
             
-            <button type="button" class="like__button card__like-button">Like</button>
+            <button type="button" class="like__button card__like-button button__text button__hover">Like</button>
           </div>
         </div>
       </article>
@@ -93,14 +93,14 @@
           <span>Вставьте дискету, чтобы продолжить</span>
         </div>
 
-        <button class="modal-button" type="button" onclick="window['modal'].close();">ОК</button>
+        <button class="modal-button button__hover" type="button" onclick="window['modal'].close();">ОК</button>
       </dialog>
 
       <button 
         type="button"
         onclick="window['modal'].showModal();"
         aria-controls="modal"
-        class="save__button"
+        class="save__button button__hover"
       >
         <svg viewbox="0 0 39 39" width="21px" class="floppy">
           <use href="./svg/floppy.svg#flop" class="floppy">
