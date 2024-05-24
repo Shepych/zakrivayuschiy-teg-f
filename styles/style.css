@@ -233,8 +233,26 @@ body {
   transition: fill 0.3s 0.1s linear;
 }
 
-.like-icon.is-liked {
+.like-icon.is-liked .contour {
+  fill: red;
+  transition: fill 0.3s 0.1s linear;
+}
 
+.like-icon.is-liked .main-body {
+  fill: red;
+  transition: fill 0.3s 0.1s linear;
+}
+
+.like-icon.is-liked .core {
+  fill: red;
+}
+
+.like-icon.is-liked .sparks {
+  animation:  sparks-animation 0.3s ease-in;
+  animation-iteration-count: 1;
+  animation-delay: 0.3s;
+  /* fill: red;
+  transition: fill 0.3s 0.1s linear; */
 }
 
 
@@ -243,20 +261,30 @@ body {
 
 
 .like-icon.is-liked {
-  animation: scale-animation 2s infinite;
+  animation: scale-animation 0.3s infinite;
   animation-iteration-count: 1;
-  animation-delay: 1s;
+  animation-delay: 0.3s;
 }
 
 @keyframes scale-animation {
   0% {
       transform: scale(1);
   }
-  50% {
+  99% {
       transform: scale(1.5);
   }
   100% {
       transform: scale(1);
+  }
+}
+
+@keyframes sparks-animation {
+  0% {
+      fill: red;
+  }
+
+  100% {
+    fill: transparent;
   }
 }
 
