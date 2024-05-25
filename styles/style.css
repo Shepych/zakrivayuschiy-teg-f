@@ -41,6 +41,7 @@ body {
   margin-bottom: 100px;
   margin-top: 100px;
   padding: 25px;
+  padding-bottom: 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,14 +54,17 @@ body {
 }
 
 .layout-header {
-  font-size: 65px;
+  /* font-size: 65px; */
+  font-size: clamp(20px, 0.5625rem + 10vw, 65px);
   margin-bottom: 20px;
 }
 
 .layout-header__description {
   text-align: center;
-  font-size: 23px;
+  /* font-size: 23px; */
+  font-size: clamp(14px, 0.5625rem + 1vw, 23px);
   margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
 .main {
@@ -90,6 +94,7 @@ body {
   border-bottom: 2px solid var(--additional-color);
   width: 100%;
   padding: 3px 10px;
+  font-weight: bold;
 }
 
 .card__image-wrapper {
@@ -159,7 +164,7 @@ body {
 }
 
 .button__hover:hover .floppy {
-  color: white;
+  color: var(--main-color);
 }
 
 .button__hover:hover::before {
@@ -176,16 +181,6 @@ body {
   box-shadow: 5px 5px 0px 0px var(--additional-color);
   outline: none;
 }
-
-/* .like__button:focus {
-  box-shadow: 5px 5px 0px 0px var(--additional-color);
-  outline: none;
-}
-
-.like__button:hover {
-  cursor: pointer;
-  color: var(--main-color);
-} */
 
 #modal {
   width: 357px;
@@ -238,7 +233,7 @@ body {
 
 .save__button {
   max-width: 335px;
-  height: 51px;
+  min-height: 51px;
   font-size: 14px;
   border: 2px solid var(--additional-color);
   color: var(--additional-color);
@@ -265,7 +260,9 @@ body {
 }
 
 .like-icon {
-  margin-right: 8px;
+  margin-right: 7px;
+  position: relative;
+  top: 4px;
 }
 
 .like-icon:hover .core {
@@ -313,9 +310,69 @@ body {
 }
 
 
+.theme-menu__button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  text-transform: uppercase;
+  transition: 0.15s;
+}
 
+.theme-menu__button::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid transparent;
+  background-color: transparent;
+  left:-30px;
+  top: -4px;
+}
 
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  background-color: var(--additional-color);
+  width: 0;
+  left: 0;
+  top: 100%;
+  transition: 0.3s;
+  z-index: -5;
+}
 
+.theme-menu__button:disabled {
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.theme-menu__button:not(:disabled):hover::after {
+  width: 100%;
+}
+
+.theme-menu__button:disabled::before {
+  animation: arrow 0.5s infinite;
+  border-left: 20px solid var(--additional-color);
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 2px;
+  position: relative;
+  left: 10px;
+  font-size: 14px;
+}
 
 .like-icon.is-liked {
   animation: scale-animation 0.3s infinite;
@@ -345,15 +402,82 @@ body {
   }
 }
 
-/* .animated-svg {
-  width: 100px;
-  height: 100px;
-  animation: scale-animation 2s infinite;
-} */
+@keyframes arrow {
+  0% {
+    left: -30px;
+  }
 
+  50% {
+    left: -26px;
+  }
 
+  100% {
+    left: -30px;
+  }
+}
 
+.image__filter-grayscale {
+  filter: grayscale(0.8);
+}
 
-/* .like-icon:hover .fullHeart {
-  display: none;
-} */
+.image__filter-saturate {
+  filter: saturate(350%);
+}
+
+.image__filter-hue-rotate {
+  filter: hue-rotate(100deg);
+}
+
+.image__filter-invert {
+  filter: invert(15)
+}
+
+.image__filter-sepia {
+  filter: sepia(0.8);
+}
+
+.image__filter-blur {
+  filter: blur(10px);
+}g
+
+.image__filter-multiple {
+  filter: blur(5px) hue-rotate(100deg) opacity(0.5) saturate(0.5);
+}
+
+@media screen and (max-width:375px) {
+  .header {
+    min-height: 327px;
+  }
+
+  .theme-menu__button::before {
+    width: 5px;
+    height: 5px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    background-color: transparent;
+    left:-30px;
+    top: -4px;
+  }
+ 
+  .card__header {
+    padding: 5px 10px;
+  }
+
+  .save__button {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 310px;
+    min-height: 83px;
+    margin-top: 50px;
+  }
+
+  .save__button .floppy {
+    margin-right: 8px;
+    width: 28px;
+    position: relative;
+    top: -6px;
+    left: 3px;
+  }
+}
