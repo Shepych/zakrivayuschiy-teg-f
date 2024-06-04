@@ -14,6 +14,19 @@
 
 */
 
+:root {
+  --headline-weight: 700;
+  --paragraph-weight: 400;
+}
+
+.card__header {
+  font-variation-settings: "wght" var(--headline-weight);
+}
+
+.card__description p {
+  font-variation-settings: "wght" var(--paragraph-weight);
+}
+
 body {
   background-color: var(--main-color);
   background-image:
@@ -141,6 +154,10 @@ body {
   border: none;
 }
 
+.card__like:focus {
+  outline: none;
+}
+
 .like__button {
   width: 130px;
   height: 38px;
@@ -198,6 +215,7 @@ body {
   background: var(--main-color);
   border: 2px solid var(--additional-color);
   overflow: hidden;
+  top: -20px;
 }
 
 #modal::backdrop {
@@ -215,6 +233,8 @@ body {
 
 .modal-info span {
   /* width: 234px; */
+  text-transform: uppercase;
+  max-width: 230px;
   margin-left: 20px;
   line-height: 21px;
 }
