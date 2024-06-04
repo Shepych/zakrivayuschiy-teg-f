@@ -16,13 +16,14 @@
 
 body {
   background-color: var(--main-color);
-  background-image: 
+  background-image:
     repeating-linear-gradient(90deg, var(--background-gradient-main), var(--background-gradient-main) 2px, transparent 2px, transparent 4px),
     repeating-linear-gradient(180deg, var(--background-gradient-main), var(--background-gradient-main) 2px, transparent 2px, transparent 4px),
     linear-gradient(180deg, var(--background-gradient-additional-linear), var(--background-gradient-additional-linear-two));
   background-size: cover;
   background-attachment: fixed;
-  font-family: InterVariable;
+  font-family: InterVariable, Arial, Helvetica, sans-serif;
+  background-position: 50% 50%;
 }
 
 .page {
@@ -36,7 +37,7 @@ body {
 
 .header {
   max-width: 700px;
-  min-height: 368px;
+  /* min-height: 368px; */
   width: 100%;
   margin-bottom: 100px;
   margin-top: 100px;
@@ -46,17 +47,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: end;
+  padding-top: 135px;
 }
 
 .header__theme-menu {
-  font-family: PressStart;
+  font-family: PressStart, Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
 .layout-header {
-  /* font-size: 65px; */
-  font-size: clamp(20px, 0.5625rem + 10vw, 65px);
+  font-size: clamp(20px, 0.725rem + 10vw, 65px);
   margin-bottom: 20px;
+  display: block;
 }
 
 .layout-header__description {
@@ -93,7 +95,7 @@ body {
 .card__header {
   border-bottom: 2px solid var(--additional-color);
   width: 100%;
-  padding: 3px 10px;
+  padding: 5px 10px;
   font-weight: bold;
 }
 
@@ -102,14 +104,14 @@ body {
 }
 
 .card__image-label {
-  font-family: PressStart;
+  font-family: PressStart, Arial, Helvetica, sans-serif;
   display: block;
   mix-blend-mode: hard-light;
   position: absolute;
   top: 25px;
   right: 25px;
   color: var(--additional-color);
-  -webkit-text-stroke: 1px var(--main-color);
+  text-shadow: 0px 0px 2px var(--main-color);
   font-size: 14px;
   font-weight: 400;
 }
@@ -117,6 +119,13 @@ body {
 .card__image {
   display: block;
   width: 100%;
+}
+
+.card__footer {
+  display: flex;
+  margin-left: auto;
+  margin-right: 25px;
+  margin-bottom: 20px;
 }
 
 .card__description {
@@ -127,16 +136,16 @@ body {
 }
 
 .card__like {
-  margin-right: 25px;
-  margin-bottom: 25px;
   margin-left: auto;
+  background: none;
+  border: none;
 }
 
 .like__button {
   width: 130px;
   height: 38px;
   font-size: 14px;
-  font-family: PressStart;
+  font-family: PressStart, Arial, Helvetica, sans-serif;
   background: transparent;
   border: 2px solid var(--additional-color);
   position: relative;
@@ -150,9 +159,9 @@ body {
   height: 100%;
   background-color: var(--additional-color);
   width: 100%;
-  left:-100%;
-  top:0;
-  transition: 0.3s;
+  left: -100%;
+  top: 0;
+  transition: 0.3s linear;
   z-index: -5;
 }
 
@@ -160,7 +169,7 @@ body {
   position: relative;
   overflow: hidden;
   z-index: 2;
-  transition: 0.3s;
+  transition: 0.3s linear;
 }
 
 .button__hover:hover .floppy {
@@ -184,8 +193,7 @@ body {
 
 #modal {
   width: 357px;
-  height: 193px;
-  font-family: PressStart;
+  font-family: PressStart, Arial, Helvetica, sans-serif;
   padding: 30px;
   background: var(--main-color);
   border: 2px solid var(--additional-color);
@@ -194,7 +202,7 @@ body {
 
 #modal::backdrop {
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.75;
 }
 
 .modal-info {
@@ -206,7 +214,7 @@ body {
 }
 
 .modal-info span {
-  width: 234px;
+  /* width: 234px; */
   margin-left: 20px;
   line-height: 21px;
 }
@@ -222,7 +230,7 @@ body {
 
 .floppy {
   color: var(--additional-color);
-  transition: 0.3s;
+  transition: 0.3s linear;
 }
 
 .save {
@@ -239,7 +247,7 @@ body {
   color: var(--additional-color);
   background-color: var(--main-color);
   width: 100%;
-  font-family: PressStart;
+  font-family: PressStart, Arial, Helvetica, sans-serif;
   margin-top: 52px;
   margin-bottom: 103px;
   display: flex;
@@ -252,58 +260,53 @@ body {
 }
 
 .main-body {
-  transition: 0.3s;
+  transition: 0.3s linear;
 }
 
 .core {
-  transition: 0.3s;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon {
-  margin-right: 7px;
   position: relative;
   top: 4px;
 }
 
 .like-icon:hover .core {
   fill: var(--additional-color);
-  transition: fill 0.3s 0.03s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--additional-color);
-  transition: fill 0.3s 0.1s linear;
+  transition: fill 0.05s 0.3s linear;
 }
 
 .like-icon:active .main-body {
   fill: var(--heart-color);
-  transition: fill 0.3s 0.1s linear;
+  transition: fill 0.05s 0.3s linear;
 }
 
 .like-icon:active .core {
   fill: var(--heart-color);
-  transition: fill 0.3s 0.1s linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heart-color);
-  transition: fill 0.3s 0.1s linear;
+  transition: fill 0.06s 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--heart-color);
-  transition: fill 0.3s 0.1s linear;
+  transition: fill 0.06s 0.3s linear;
 }
 
 .like-icon.is-liked .core {
   fill: var(--heart-color);
 }
 
-.like-icon.is-liked .sparks {
-  animation:  sparks-animation 0.3s ease-in;
-  animation-iteration-count: 1;
-  animation-delay: 0.3s;
-}
+
 
 .card__icon-button:hover {
   cursor: pointer;
@@ -315,10 +318,10 @@ body {
   border: none;
   position: relative;
   text-transform: uppercase;
-  transition: 0.15s;
+  transition: 0.15s linear;
 }
 
-.theme-menu__button::before {
+/* .theme-menu__button::before {
   content: '';
   position: absolute;
   width: 20px;
@@ -327,8 +330,39 @@ body {
   border-bottom: 10px solid transparent;
   border-left: 20px solid transparent;
   background-color: transparent;
-  left:-30px;
+  left: -30px;
   top: -4px;
+} */
+
+.theme-menu__item {
+  display: flex;
+}
+
+/* .theme-menu__button::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid transparent;
+  background-color: transparent;
+  left: -30px;
+  top: -4px;
+} */
+
+
+.menu__pointer-wrapper {
+  position: relative;
+  opacity: 0;
+}
+
+.disabled__pointer {
+  opacity: 1;
+}
+
+.menu__pointer {
+  color: var(--additional-color);
 }
 
 .theme-menu__button::after {
@@ -353,67 +387,29 @@ body {
   cursor: pointer;
 }
 
-.theme-menu__button:not(:disabled):hover::after {
+.theme-menu__button:focus::after {
   width: 100%;
 }
 
-.theme-menu__button:disabled::before {
-  animation: arrow 0.5s infinite;
-  border-left: 20px solid var(--additional-color);
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button:not(:disabled):hover::after {
+  width: 100%;
 }
 
 .theme-menu__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100px;
+  width: 124px;
   margin: 0 auto;
   margin-bottom: 2px;
   position: relative;
-  left: 10px;
+  padding-left: 8px;
   font-size: 14px;
-}
-
-.like-icon.is-liked {
-  animation: scale-animation 0.3s infinite;
-  animation-iteration-count: 1;
-  animation-delay: 0.3s;
-}
-
-@keyframes scale-animation {
-  0% {
-      transform: scale(1);
-  }
-  99% {
-      transform: scale(1.5);
-  }
-  100% {
-      transform: scale(1);
-  }
-}
-
-@keyframes sparks-animation {
-  0% {
-      fill: var(--heart-color);
-  }
-
-  100% {
-    fill: transparent;
-  }
-}
-
-@keyframes arrow {
-  0% {
-    left: -30px;
-  }
-
-  50% {
-    left: -26px;
-  }
-
-  100% {
-    left: -30px;
-  }
 }
 
 .image__filter-grayscale {
@@ -438,28 +434,27 @@ body {
 
 .image__filter-blur {
   filter: blur(10px);
-}g
+}
 
-.image__filter-multiple {
+g .image__filter-multiple {
   filter: blur(5px) hue-rotate(100deg) opacity(0.5) saturate(0.5);
 }
 
 @media screen and (max-width:375px) {
   .header {
-    min-height: 327px;
+    padding-top: 121px;
+  }
+
+  .card__image-label {
+    right: 11px;
+    top: 24px;
   }
 
   .theme-menu__button::before {
     width: 5px;
     height: 5px;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid transparent;
-    background-color: transparent;
-    left:-30px;
-    top: -4px;
   }
- 
+
   .card__header {
     padding: 5px 10px;
   }

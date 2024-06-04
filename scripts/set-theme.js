@@ -21,8 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function setDisabled(theme) {
     themeButtons.forEach((item) => {
       if (item.getAttribute('data-theme') === theme) {
+        item.parentElement.querySelector('svg').classList.add('disabled__pointer')
         item.setAttribute('disabled', true);
       } else {
+        item.parentElement.querySelector('svg').classList.remove('disabled__pointer')
         item.removeAttribute('disabled');
       }
     });
