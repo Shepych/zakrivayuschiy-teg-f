@@ -38,3 +38,13 @@ function setButtonText(heart, button) {
     );
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  const focusableElements = document.querySelectorAll('.card__like');
+  
+  focusableElements.forEach((element, index) => {
+      element.addEventListener('focus', (event) => {
+        element.parentNode.querySelector('.like__button').focus()
+      });
+  });
+});

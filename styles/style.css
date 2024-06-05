@@ -36,7 +36,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   font-family: InterVariable, Arial, Helvetica, sans-serif;
-  background-position: 50% 50%;
+  background-position: center center;
 }
 
 .page {
@@ -84,6 +84,8 @@ body {
 
 .main {
   max-width: 700px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .main__theme {
@@ -110,10 +112,14 @@ body {
   width: 100%;
   padding: 5px 10px;
   font-weight: bold;
+  font-size: 18px;
 }
 
 .card__image-wrapper {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 2px solid var(--additional-color);
 }
 
 .card__image-label {
@@ -129,9 +135,19 @@ body {
   font-weight: 400;
 }
 
+@supports (-webkit-text-stroke: 1px black) or (text-stroke: 1px black) {
+  .card__image-label {
+    -webkit-text-stroke: 1px var(--main-color);;
+    text-stroke: 1px var(--main-color);;
+    text-shadow: none;
+  }
+}
+
 .card__image {
   display: block;
-  width: 100%;
+  width: 1046px;
+  position: relative;
+  right: 333px;
 }
 
 .card__footer {
@@ -167,6 +183,9 @@ body {
   border: 2px solid var(--additional-color);
   position: relative;
   color: var(--additional-color);
+
+  transition: all 0.3s ease;
+  mix-blend-mode: screen;
 }
 
 .button__hover::before {
@@ -284,7 +303,7 @@ body {
 }
 
 .core {
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s 0.3s linear;
 }
 
 .like-icon {
@@ -294,12 +313,12 @@ body {
 
 .like-icon:hover .core {
   fill: var(--additional-color);
-  transition: fill 0.3s 0.05s linear;
+  transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
   fill: var(--additional-color);
-  transition: fill 0.05s 0.3s linear;
+  transition: fill 0.3s 0.05s linear;
 }
 
 .like-icon:active .main-body {
@@ -461,6 +480,33 @@ g .image__filter-multiple {
 }
 
 @media screen and (max-width:375px) {
+  .modal-info {
+    padding-left: 7px;
+  }
+  .modal-info span {
+    max-width: 200px;
+  }
+  #modal {
+    top: -100px;
+  }
+  .card__image {
+    width: 555px;
+    right: 180px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  li {
+    line-height: 1;
+  }
+
   .header {
     padding-top: 121px;
   }
@@ -477,6 +523,7 @@ g .image__filter-multiple {
 
   .card__header {
     padding: 5px 10px;
+    line-height: 21px;
   }
 
   .save__button {
@@ -494,5 +541,9 @@ g .image__filter-multiple {
     position: relative;
     top: -6px;
     left: 3px;
+  }
+
+  .card__description p {
+    line-height: 21px;
   }
 }
