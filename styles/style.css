@@ -183,9 +183,6 @@ body {
   border: 2px solid var(--additional-color);
   position: relative;
   color: var(--additional-color);
-
-  transition: all 0.3s ease;
-  mix-blend-mode: screen;
 }
 
 .button__hover::before {
